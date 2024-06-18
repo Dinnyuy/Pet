@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: petclinic-app
-          image: samcolon/petclinic:latest
+          image: dinnyuy/petclinic:latest
           resources:
             limits:
               memory: "256Mi"
