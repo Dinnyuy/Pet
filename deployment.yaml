@@ -14,10 +14,13 @@ spec:
         app: petclinic
     spec:
       containers:
-        - name: petclinic-container
+        - name: petclinic
           image: dinnyuy/petclinic:latest
           ports:
             - containerPort: 8080
+              name: http
+              protocol: TCP
+          imagePullPolicy: Always
 
 ---
 
@@ -29,7 +32,8 @@ spec:
   selector:
     app: petclinic 
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 8080
       targetPort: 8080
-  type: NodePort
+  type: LoadBalancer
